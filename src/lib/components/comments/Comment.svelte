@@ -1,27 +1,11 @@
-<script lang="ts" context="module">
-  export type Comment = {
-    id: number;
-    content: string;
-    createdAt: string;
-    score: number;
-    user: {
-      image: {
-        png: string;
-        webp: string;
-      };
-      username: string;
-    };
-    replies?: Comment[];
-    replyingTo?: string;
-  };
-</script>
-
 <script lang="ts">
+  import { page } from '$app/stores';
+  import type { Comment } from '$lib/models/comment';
   import Button from '../Button.svelte';
   import CommentSkeleton from './CommentSkeleton.svelte';
 
-  export let owned = false;
   export let comment: Comment;
+  export let owned: boolean = false;
 </script>
 
 <CommentSkeleton>
