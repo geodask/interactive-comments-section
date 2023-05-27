@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Button from './Button.svelte';
+  import Button from '$lib/components/Button.svelte';
 
   export let onCancel: () => void;
   export let onSave: () => void;

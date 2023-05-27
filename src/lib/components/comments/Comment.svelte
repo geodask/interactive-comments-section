@@ -1,23 +1,27 @@
-<script>
+<script lang="ts" context="module">
+  export type Comment = {
+    id: number;
+    content: string;
+    createdAt: string;
+    score: number;
+    user: {
+      image: {
+        png: string;
+        webp: string;
+      };
+      username: string;
+    };
+    replies?: Comment[];
+    replyingTo?: string;
+  };
+</script>
+
+<script lang="ts">
   import Button from '../Button.svelte';
   import CommentSkeleton from './CommentSkeleton.svelte';
 
   export let owned = false;
-  export let comment = {
-    id: 1,
-    content:
-      "Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.",
-    createdAt: '1 month ago',
-    score: 12,
-    user: {
-      image: {
-        png: '/images/avatars/image-amyrobson.png',
-        webp: '/images/avatars/image-amyrobson.webp'
-      },
-      username: 'amyrobson'
-    },
-    replies: []
-  };
+  export let comment: Comment;
 </script>
 
 <CommentSkeleton>
@@ -31,6 +35,9 @@
   </div>
 
   <p slot="content" class="text-grayish-blue">
+    {#if comment.replyingTo}
+      <span class="text-moderate-blue font-medium">@{comment.replyingTo}</span>
+    {/if}
     {comment.content}
   </p>
 
