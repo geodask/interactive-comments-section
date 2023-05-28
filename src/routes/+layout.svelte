@@ -3,7 +3,7 @@
   import '../app.postcss';
 </script>
 
-<div class="container mx-auto h-full flex flex-col p-4 max-w-4xl">
+<div class="container mx-auto h-full flex flex-col p-2 max-w-4xl">
   <div class="flex-grow">
     <slot />
   </div>

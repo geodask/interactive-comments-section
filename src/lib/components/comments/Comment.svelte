@@ -1,8 +1,7 @@
 <script lang="ts">
-  import { page } from '$app/stores';
+  import Button from '$lib/components/Button.svelte';
+  import CommentSkeleton from '$lib/components/comments/skeletons/CommentSkeleton.svelte';
   import type { Comment } from '$lib/models/comment';
-  import Button from '../Button.svelte';
-  import CommentSkeleton from './CommentSkeleton.svelte';
 
   export let comment: Comment;
   export let owned: boolean = false;
