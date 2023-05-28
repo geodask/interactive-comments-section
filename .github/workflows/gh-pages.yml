@@ -21,10 +21,10 @@ jobs:
         id: pages
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run build
+          node-version: 20
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
