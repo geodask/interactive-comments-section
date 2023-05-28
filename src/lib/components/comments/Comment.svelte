@@ -28,7 +28,7 @@
 
 <CommentSkeleton>
   <div slot="user-tag" class="items-center flex gap-3">
-    <img width="38" src="{base}{comment.user.image.png}" alt="avatar" />
+    <img width="38" src="{base}/{comment.user.image.png}" alt="avatar" />
     <span class="text-dark-blue font-bold">{comment.user.username}</span>
     {#if owned}
       <span class="bg-moderate-blue text-xs text-white px-1 rounded-sm">you</span>

@@ -26,7 +26,7 @@
     class="w-full outline-moderate-blue outline outline-1 focus:outline-2 p-4 rounded-md resize-none text-grayish-blue placeholder:text-grayish-blue"
     rows="4"
   />
-  <img slot="avatar" width="38" src="{base}{user.image.png}" alt="avatar" />
+  <img slot="avatar" width="38" src="{base}/{user.image.png}" alt="avatar" />
   <Button
     on:click={onSend}
     slot="action"
