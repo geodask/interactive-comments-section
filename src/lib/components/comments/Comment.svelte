@@ -28,7 +28,7 @@
 
 <CommentSkeleton>
   <div slot="user-tag" class="items-center flex gap-3">
-    <img width="38" src="{base}/{comment.user.image.png}" alt="avatar" />
+    <img width="38" src={comment.user.image.png} alt="avatar" />
     <span class="text-dark-blue font-bold">{comment.user.username}</span>
     {#if owned}
       <span class="bg-moderate-blue text-xs text-white px-1 rounded-sm">you</span>
@@ -58,12 +58,12 @@
     class="text-moderate-blue font-medium bg-very-light-gray flex items-center gap-2 rounded-md sm:flex-col min-w-fit"
   >
     <button on:click={() => onClickUpvote(comment.id)}>
-      <img width="12" src="{base}/images/icon-plus.svg" alt="plus" class="m-4" />
+      <img width="12" src="images/icon-plus.svg" alt="plus" class="m-4" />
     </button>
     <span>{comment.score}</span>
 
     <button on:click={() => onClickDownVote(comment.id)}>
-      <img width="12" src="{base}/images/icon-minus.svg" alt="minus" class="m-4" />
+      <img width="12" src="images/icon-minus.svg" alt="minus" class="m-4" />
     </button>
   </div>
 
@@ -79,17 +79,17 @@
     {:else if owned}
       <div class="flex">
         <Button class="text-soft-red" on:click={() => onClickDelete(comment.id)}>
-          <img slot="icon" src="{base}/images/icon-delete.svg" alt="delete" />
+          <img slot="icon" src="images/icon-delete.svg" alt="delete" />
           Delete
         </Button>
         <Button on:click={onClickEdit}>
-          <img slot="icon" src="{base}/images/icon-edit.svg" alt="edit" />
+          <img slot="icon" src="images/icon-edit.svg" alt="edit" />
           Edit
         </Button>
       </div>
     {:else}
       <Button on:click={() => onClickReply(comment.id)}>
-        <img slot="icon" src="{base}/images/icon-reply.svg" alt="reply" />
+        <img slot="icon" src="images/icon-reply.svg" alt="reply" />
         Reply
       </Button>
     {/if}
