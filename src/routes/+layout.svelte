@@ -10,8 +10,8 @@
 
   <div class="attribution">
     Challenge by
-    <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded
-    by <a href="#">geodask</a>.
+    <a href="https://www.frontendmentor.io/challenges/interactive-comments-section-iG1RugEG9" target="_blank">Frontend Mentor</a>. Coded
+    by <a href="https://github.com/geodask">geodask</a>.
   </div>
 </div>
 
