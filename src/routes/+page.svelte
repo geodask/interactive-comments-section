@@ -3,6 +3,7 @@
   import Comment from '$lib/components/comments/Comment.svelte';
   import NewComment from '$lib/components/comments/NewComment.svelte';
   import DeleteCommentConfirmation from '$lib/components/dialogs/DeleteCommentConfirmation.svelte';
+  import { slide } from 'svelte/transition';
 
   export let data;
 
@@ -55,7 +56,7 @@
 </script>
 
 <div class="space-y-2">
-  {#each data.comments as comment}
+  {#each data.comments as comment (comment.id)}
     {@const owned = data.user.username === comment.user.username}
     <Comment
       on:delete={onDelete}
@@ -66,11 +67,15 @@
       {owned}
       {comment}
     />
-
     {#if replyingTo === comment.id}
-      <NewComment on:send={onSend} user={data.user} isReply />
+      <div
+        transition:slide={{
+          duration: 250
+        }}
+      >
+        <NewComment on:send={onSend} user={data.user} isReply />
+      </div>
     {/if}
-
     <div class="ml-[2.5%] pl-[2.5%] space-y-2 border-l-2 border-light-gray">
       {#each comment?.replies || [] as reply}
         {@const owned = data.user.username === reply.user.username}
@@ -83,9 +88,14 @@
           {owned}
           comment={reply}
         />
-
         {#if replyingTo === reply.id}
-          <NewComment on:send={onSend} user={data.user} isReply />
+          <div
+            transition:slide={{
+              duration: 250
+            }}
+          >
+            <NewComment on:send={onSend} user={data.user} isReply />
+          </div>
         {/if}
       {/each}
     </div>
