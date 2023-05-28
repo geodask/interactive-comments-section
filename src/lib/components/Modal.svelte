@@ -8,13 +8,20 @@
   };
 
   type Component<TComponent extends SvelteComponentTyped> = ComponentType<TComponent>;
-  type Props<TComponent extends SvelteComponentTyped> = { [k: string]: never } extends ComponentProps<TComponent> ? [] : [props: ComponentProps<TComponent>];
+  type Props<TComponent extends SvelteComponentTyped> = {
+    [k: string]: never;
+  } extends ComponentProps<TComponent>
+    ? []
+    : [props: ComponentProps<TComponent>];
 
   const modal = writable<ComponentType | undefined>(undefined);
   const modalConfig = writable<ModalConfig | undefined>(undefined);
   const modalProps = writable<Record<string, any> | undefined>(undefined);
 
-  const openModal = <TComponent extends SvelteComponentTyped>(component: Component<TComponent>, ...props: Props<TComponent>) => {
+  const openModal = <TComponent extends SvelteComponentTyped>(
+    component: Component<TComponent>,
+    ...props: Props<TComponent>
+  ) => {
     modal.set(component);
     modalProps.set(props[0]);
   };
@@ -47,7 +54,11 @@
 </script>
 
 {#if $modal}
-  <div on:keypress={animate} on:click={animate} class="h-screen w-screen absolute top-0 left-0 bg-black opacity-50" />
+  <div
+    on:keypress={animate}
+    on:click={animate}
+    class="h-screen w-screen absolute top-0 left-0 bg-black opacity-50"
+  />
 {/if}
 
 {#if $modal}

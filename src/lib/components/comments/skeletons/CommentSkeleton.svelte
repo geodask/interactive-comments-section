@@ -15,7 +15,7 @@
   <div class="hidden sm:block">
     <div class="flex items-start gap-6">
       <slot name="counter" />
-      <div class="flex gap-4 flex-col">
+      <div class="flex gap-4 flex-col grow">
         <div class="flex items-center justify-between">
           <slot name="user-tag" />
           <slot name="actions" />
