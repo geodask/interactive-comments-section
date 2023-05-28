@@ -18,7 +18,7 @@
   const onClickEditCancel = () => (editMode = false);
   const onClickUpdate = (id: number) => {
     editMode = false;
-    dispatch('edit', { id });
+    dispatch('update', { id });
   };
 
   const onClickUpvote = (id: number) => dispatch('upvote', { id });
@@ -39,7 +39,7 @@
     {#if editMode}
       <textarea
         value={comment.content}
-        class="w-full outline-moderate-blue outline outline-1 focus:outline-2 p-4 rounded-md resize-none"
+        class="w-full outline-moderate-blue outline outline-1 focus:outline-2 p-4 rounded-md resize-none text-grayish-blue"
         rows="4"
       />
     {:else}
