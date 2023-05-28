@@ -1,5 +1,9 @@
 <script lang="ts">
-  import { base } from '$app/paths';
+  import iconDelete from '$lib/assets/icon-delete.svg';
+  import iconEdit from '$lib/assets/icon-edit.svg';
+  import iconMinus from '$lib/assets/icon-minus.svg';
+  import iconPlus from '$lib/assets/icon-plus.svg';
+  import iconReply from '$lib/assets/icon-reply.svg';
   import Button from '$lib/components/Button.svelte';
   import CommentSkeleton from '$lib/components/comments/skeletons/CommentSkeleton.svelte';
   import type { Comment } from '$lib/models/comment';
@@ -58,12 +62,12 @@
     class="text-moderate-blue font-medium bg-very-light-gray flex items-center gap-2 rounded-md sm:flex-col min-w-fit"
   >
     <button on:click={() => onClickUpvote(comment.id)}>
-      <img width="12" src="images/icon-plus.svg" alt="plus" class="m-4" />
+      <img width="12" src={iconPlus} alt="plus" class="m-4" />
     </button>
     <span>{comment.score}</span>
 
     <button on:click={() => onClickDownVote(comment.id)}>
-      <img width="12" src="images/icon-minus.svg" alt="minus" class="m-4" />
+      <img width="12" src={iconMinus} alt="minus" class="m-4" />
     </button>
   </div>
 
@@ -79,17 +83,17 @@
     {:else if owned}
       <div class="flex">
         <Button class="text-soft-red" on:click={() => onClickDelete(comment.id)}>
-          <img slot="icon" src="images/icon-delete.svg" alt="delete" />
+          <img slot="icon" src={iconDelete} alt="delete" />
           Delete
         </Button>
         <Button on:click={onClickEdit}>
-          <img slot="icon" src="images/icon-edit.svg" alt="edit" />
+          <img slot="icon" src={iconEdit} alt="edit" />
           Edit
         </Button>
       </div>
     {:else}
       <Button on:click={() => onClickReply(comment.id)}>
-        <img slot="icon" src="images/icon-reply.svg" alt="reply" />
+        <img slot="icon" src={iconReply} alt="reply" />
         Reply
       </Button>
     {/if}

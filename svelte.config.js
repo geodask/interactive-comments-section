@@ -15,6 +15,7 @@ const config = {
 
   kit: {
     paths: {
+      relative: false,
       assets: 'https://geodask-ics.netlify.app'
     },
     // adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
