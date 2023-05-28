@@ -57,7 +57,7 @@
   <div
     on:keypress={animate}
     on:click={animate}
-    class="h-screen w-screen absolute top-0 left-0 bg-black opacity-50"
+    class="bottom-0 w-screen fixed top-0 left-0 bg-black opacity-50"
   />
 {/if}
 
@@ -68,7 +68,7 @@
       start: 0.8,
       duration: 200
     }}
-    class="absolute bg-white w-[350px] -m-[175px] sm:w-[400px] sm:-m-[200px] left-[50%] top-[50%] p-6 rounded-md space-y-5"
+    class="fixed bg-white w-[350px] -m-[175px] sm:w-[400px] sm:-m-[200px] left-[50%] top-[50%] p-6 rounded-md space-y-5"
   >
     <svelte:component this={$modal} {...$modalProps} />
   </div>
